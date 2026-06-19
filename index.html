@@ -3,166 +3,231 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>할머니 팔순잔치 초대장</title>
+    <title>우리 가족 일정판</title>
     <meta
       name="description"
-      content="할머니의 팔순 생신을 축하하는 가족 홈페이지입니다."
+      content="가족 일정을 공지하고, 중요한 일정의 사진과 메모를 함께 남기는 가족 홈페이지입니다."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header" aria-label="가족 홈페이지">
-      <a class="brand" href="#top">우리 가족의 축하</a>
+    <header class="site-header" aria-label="가족 일정 홈페이지">
+      <a class="brand" href="#top">우리 가족 일정판</a>
       <nav aria-label="주요 메뉴">
-        <a href="#story">추억</a>
-        <a href="#day">잔치 안내</a>
-        <a href="#messages">마음 전하기</a>
+        <a href="#calendar">구글 캘린더</a>
+        <a href="#important">중요 일정</a>
+        <a href="#letters">편지함</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero" aria-label="팔순잔치 초대장">
+      <section class="hero" aria-label="가족 일정 공지">
         <img
           class="hero-image"
           src="assets/palsoon-hero.png"
-          alt="꽃과 팔순 장식이 놓인 따뜻한 생신상"
+          alt="가족 행사를 떠올리게 하는 따뜻한 꽃 장식과 식탁"
         />
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <p class="eyebrow">2026 가족 생신 모임</p>
-          <h1>할머니의 팔순을 함께 축하해요</h1>
+          <p class="eyebrow">Family Schedule Board</p>
+          <h1>가족의 중요한 날을 한곳에 모아요</h1>
           <p class="hero-copy">
-            늘 우리에게 따뜻한 마음을 나누어주신 할머니께, 가족의 웃음과
-            감사한 마음을 모아 드리는 하루입니다.
+            생신, 모임, 여행, 기념일을 공지하고 사진과 메모를 함께 남기는
+            가족 전용 일정 페이지입니다.
           </p>
           <div class="hero-actions" aria-label="빠른 이동">
-            <a class="button primary" href="#day">일정 보기</a>
-            <a class="button secondary" href="#messages">축하 남기기</a>
+            <a class="button primary" href="#important">주요일정 보기</a>
+            <a class="button secondary" href="#addSchedule">일정 추가</a>
           </div>
         </div>
       </section>
 
-      <section class="intro band" aria-label="초대 문구">
-        <div class="section-inner intro-grid">
-          <div>
-            <p class="section-kicker">Invitation</p>
-            <h2>여든 번째 봄처럼 환한 날</h2>
-          </div>
+      <section class="summary-band" aria-label="주요 일정 요약">
+        <div class="section-inner summary-grid">
+          <article>
+            <span class="summary-label">다가오는 중요 일정</span>
+            <strong id="nextEventTitle">팔순잔치</strong>
+            <p id="nextEventMeta">날짜와 장소를 확인해 주세요.</p>
+          </article>
+          <article>
+            <span class="summary-label">저장 방식</span>
+            <strong>이 브라우저에 저장</strong>
+            <p>일정, 사진, 메모, 편지는 현재 기기의 localStorage에 보관됩니다.</p>
+          </article>
+          <article>
+            <span class="summary-label">캘린더 연동</span>
+            <strong>Google Calendar</strong>
+            <p>공개 캘린더 ID와 API 키를 넣으면 주요일정을 불러올 수 있습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-inner calendar-section" id="calendar">
+        <div class="section-heading">
+          <p class="section-kicker">Google Calendar</p>
+          <h2>가족 구글 캘린더 연동</h2>
           <p>
-            바쁘신 걸음 잠시 모아, 할머니의 팔순 생신을 축하하는 자리에 함께해
-            주세요. 오래 기억될 사진 한 장, 다정한 인사 한마디가 할머니께 가장
-            큰 선물이 될 거예요.
+            가족 캘린더를 공개 설정한 뒤 캘린더 ID를 넣으면 캘린더 화면을
+            바로 볼 수 있습니다. API 키까지 넣으면 아래 목록에도 일정을
+            가져옵니다.
           </p>
         </div>
-      </section>
 
-      <section class="section-inner story-section" id="story">
-        <div class="section-heading">
-          <p class="section-kicker">Memory</p>
-          <h2>우리 마음에 남은 할머니</h2>
-        </div>
-        <div class="memory-grid">
-          <article class="memory-card">
-            <span>01</span>
-            <h3>언제나 먼저 건네신 안부</h3>
-            <p>
-              짧은 전화 한 통에도 가족의 하루를 살펴주시던 마음을 기억합니다.
-            </p>
-          </article>
-          <article class="memory-card">
-            <span>02</span>
-            <h3>함께 둘러앉은 식탁</h3>
-            <p>
-              맛있는 음식보다 더 오래 남는 건, 그 자리의 웃음과 편안함이었습니다.
-            </p>
-          </article>
-          <article class="memory-card">
-            <span>03</span>
-            <h3>우리에게 이어진 사랑</h3>
-            <p>
-              할머니가 지켜온 다정함이 지금의 우리 가족을 단단히 이어주었습니다.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="band schedule-band" id="day">
-        <div class="section-inner schedule-layout">
-          <div class="section-heading">
-            <p class="section-kicker">Celebration Day</p>
-            <h2>팔순잔치 안내</h2>
-            <p>
-              날짜와 장소는 가족 일정에 맞게 아래 문구만 바꾸면 됩니다.
-            </p>
-          </div>
-          <div class="schedule-panel" aria-label="행사 정보">
-            <div>
-              <span class="label">날짜</span>
-              <strong>2026년 0월 0일 토요일</strong>
-            </div>
-            <div>
-              <span class="label">시간</span>
-              <strong>오후 12시 00분</strong>
-            </div>
-            <div>
-              <span class="label">장소</span>
-              <strong>장소명을 입력해 주세요</strong>
-            </div>
-            <div>
-              <span class="label">마음</span>
-              <strong>가벼운 발걸음과 환한 웃음</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section-inner gallery-section" aria-label="가족 사진 자리">
-        <div class="section-heading">
-          <p class="section-kicker">Family Album</p>
-          <h2>사진으로 채워질 자리</h2>
-        </div>
-        <div class="photo-grid">
-          <div class="photo-slot">가족 사진</div>
-          <div class="photo-slot">어린 시절</div>
-          <div class="photo-slot">여행 사진</div>
-          <div class="photo-slot">잔치 사진</div>
-        </div>
-      </section>
-
-      <section class="band message-band" id="messages">
-        <div class="section-inner message-layout">
-          <div>
-            <p class="section-kicker">With Love</p>
-            <h2>할머니께 마음 전하기</h2>
-            <p>
-              가족들이 남긴 짧은 축하 인사는 이 브라우저에 저장됩니다. 실제
-              공개용으로 쓸 때는 문구를 모아 사진과 함께 넣어도 좋아요.
-            </p>
-          </div>
-          <form class="message-form" id="messageForm">
+        <div class="calendar-layout">
+          <form class="settings-panel" id="calendarSettings">
             <label>
-              이름
-              <input id="nameInput" type="text" placeholder="예: 손자 민준" />
+              공개 캘린더 ID
+              <input
+                id="calendarIdInput"
+                type="text"
+                placeholder="예: familycalendar@gmail.com"
+              />
             </label>
             <label>
-              축하 메시지
+              Google Calendar API 키
+              <input
+                id="apiKeyInput"
+                type="password"
+                placeholder="목록 불러오기에만 필요합니다"
+              />
+            </label>
+            <div class="button-row">
+              <button class="button primary" type="submit">연동 저장</button>
+              <button class="button ghost" type="button" id="clearCalendar">
+                초기화
+              </button>
+            </div>
+          </form>
+
+          <div class="calendar-card">
+            <iframe
+              id="calendarFrame"
+              title="가족 구글 캘린더"
+              src="about:blank"
+              loading="lazy"
+            ></iframe>
+            <p class="calendar-help" id="calendarHelp">
+              캘린더 ID를 입력하면 이 자리에 구글 캘린더가 표시됩니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-heading compact">
+          <h3>구글 캘린더에서 불러온 주요일정</h3>
+        </div>
+        <div class="google-event-list" id="googleEventList" aria-live="polite"></div>
+      </section>
+
+      <section class="band important-band" id="important">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Important Days</p>
+            <h2>중요 일정</h2>
+            <p>
+              팔순잔치는 기본으로 등록되어 있습니다. 더하기로 일정을 추가하고
+              각 일정마다 사진과 메모를 채울 수 있습니다.
+            </p>
+          </div>
+
+          <details class="add-panel" id="addSchedule" open>
+            <summary>
+              <span>중요 일정 추가</span>
+              <span class="plus-mark">+</span>
+            </summary>
+            <form class="event-form" id="eventForm">
+              <label>
+                일정 이름
+                <input id="eventTitle" type="text" placeholder="예: 가족 여행" />
+              </label>
+              <label>
+                날짜
+                <input id="eventDate" type="date" />
+              </label>
+              <label>
+                시간
+                <input id="eventTime" type="time" />
+              </label>
+              <label>
+                장소
+                <input id="eventPlace" type="text" placeholder="예: 서울역" />
+              </label>
+              <label>
+                분류
+                <select id="eventCategory">
+                  <option value="palsoon">팔순잔치</option>
+                  <option value="birthday">생신/기념일</option>
+                  <option value="meal">식사 모임</option>
+                  <option value="trip">여행</option>
+                  <option value="family">가족 모임</option>
+                  <option value="custom">기타</option>
+                </select>
+              </label>
+              <label class="wide">
+                메모
+                <textarea
+                  id="eventMemo"
+                  rows="3"
+                  placeholder="준비물, 회비, 연락할 사람 등을 적어 주세요."
+                ></textarea>
+              </label>
+              <button class="button primary wide" type="submit">일정 추가</button>
+            </form>
+          </details>
+
+          <div class="event-grid" id="eventGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section-inner recommendation-section">
+        <div class="section-heading">
+          <p class="section-kicker">Image Recommender</p>
+          <h2>주요일정 추천 이미지</h2>
+          <p>
+            선택한 일정 분류에 맞춰 어울리는 이미지 분위기를 추천합니다.
+            추천 카드를 누르면 현재 선택된 일정의 사진으로 채울 수 있습니다.
+          </p>
+        </div>
+        <div class="recommendation-grid" id="recommendationGrid"></div>
+      </section>
+
+      <section class="band letters-band" id="letters">
+        <div class="section-inner letter-layout">
+          <div>
+            <p class="section-kicker">Family Notes</p>
+            <h2>가족에게 편지와 메모 남기기</h2>
+            <p>
+              할머니께 드리는 축하뿐 아니라 부모님, 형제자매, 사촌에게 전할
+              공지와 마음도 남길 수 있습니다.
+            </p>
+          </div>
+          <form class="letter-form" id="letterForm">
+            <label>
+              받는 사람
+              <input id="letterTo" type="text" placeholder="예: 할머니, 가족 모두" />
+            </label>
+            <label>
+              보낸 사람
+              <input id="letterFrom" type="text" placeholder="예: 손자 민준" />
+            </label>
+            <label>
+              편지 또는 메모
               <textarea
-                id="messageInput"
+                id="letterBody"
                 rows="4"
-                placeholder="할머니, 팔순을 진심으로 축하드려요."
+                placeholder="전하고 싶은 말을 적어 주세요."
               ></textarea>
             </label>
             <button class="button primary" type="submit">남기기</button>
           </form>
         </div>
         <div class="section-inner">
-          <div class="message-list" id="messageList" aria-live="polite"></div>
+          <div class="letter-list" id="letterList" aria-live="polite"></div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>사랑하는 가족들이 함께 준비한 팔순 생신 홈페이지</p>
+      <p>가족들이 함께 업데이트하는 우리 가족 일정 홈페이지</p>
     </footer>
 
     <script src="script.js"></script>
