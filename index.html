@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>할머니 팔순잔치 초대장</title>
+    <meta
+      name="description"
+      content="할머니의 팔순 생신을 축하하는 가족 홈페이지입니다."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="가족 홈페이지">
+      <a class="brand" href="#top">우리 가족의 축하</a>
+      <nav aria-label="주요 메뉴">
+        <a href="#story">추억</a>
+        <a href="#day">잔치 안내</a>
+        <a href="#messages">마음 전하기</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="팔순잔치 초대장">
+        <img
+          class="hero-image"
+          src="assets/palsoon-hero.png"
+          alt="꽃과 팔순 장식이 놓인 따뜻한 생신상"
+        />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">2026 가족 생신 모임</p>
+          <h1>할머니의 팔순을 함께 축하해요</h1>
+          <p class="hero-copy">
+            늘 우리에게 따뜻한 마음을 나누어주신 할머니께, 가족의 웃음과
+            감사한 마음을 모아 드리는 하루입니다.
+          </p>
+          <div class="hero-actions" aria-label="빠른 이동">
+            <a class="button primary" href="#day">일정 보기</a>
+            <a class="button secondary" href="#messages">축하 남기기</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro band" aria-label="초대 문구">
+        <div class="section-inner intro-grid">
+          <div>
+            <p class="section-kicker">Invitation</p>
+            <h2>여든 번째 봄처럼 환한 날</h2>
+          </div>
+          <p>
+            바쁘신 걸음 잠시 모아, 할머니의 팔순 생신을 축하하는 자리에 함께해
+            주세요. 오래 기억될 사진 한 장, 다정한 인사 한마디가 할머니께 가장
+            큰 선물이 될 거예요.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-inner story-section" id="story">
+        <div class="section-heading">
+          <p class="section-kicker">Memory</p>
+          <h2>우리 마음에 남은 할머니</h2>
+        </div>
+        <div class="memory-grid">
+          <article class="memory-card">
+            <span>01</span>
+            <h3>언제나 먼저 건네신 안부</h3>
+            <p>
+              짧은 전화 한 통에도 가족의 하루를 살펴주시던 마음을 기억합니다.
+            </p>
+          </article>
+          <article class="memory-card">
+            <span>02</span>
+            <h3>함께 둘러앉은 식탁</h3>
+            <p>
+              맛있는 음식보다 더 오래 남는 건, 그 자리의 웃음과 편안함이었습니다.
+            </p>
+          </article>
+          <article class="memory-card">
+            <span>03</span>
+            <h3>우리에게 이어진 사랑</h3>
+            <p>
+              할머니가 지켜온 다정함이 지금의 우리 가족을 단단히 이어주었습니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="band schedule-band" id="day">
+        <div class="section-inner schedule-layout">
+          <div class="section-heading">
+            <p class="section-kicker">Celebration Day</p>
+            <h2>팔순잔치 안내</h2>
+            <p>
+              날짜와 장소는 가족 일정에 맞게 아래 문구만 바꾸면 됩니다.
+            </p>
+          </div>
+          <div class="schedule-panel" aria-label="행사 정보">
+            <div>
+              <span class="label">날짜</span>
+              <strong>2026년 0월 0일 토요일</strong>
+            </div>
+            <div>
+              <span class="label">시간</span>
+              <strong>오후 12시 00분</strong>
+            </div>
+            <div>
+              <span class="label">장소</span>
+              <strong>장소명을 입력해 주세요</strong>
+            </div>
+            <div>
+              <span class="label">마음</span>
+              <strong>가벼운 발걸음과 환한 웃음</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-inner gallery-section" aria-label="가족 사진 자리">
+        <div class="section-heading">
+          <p class="section-kicker">Family Album</p>
+          <h2>사진으로 채워질 자리</h2>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-slot">가족 사진</div>
+          <div class="photo-slot">어린 시절</div>
+          <div class="photo-slot">여행 사진</div>
+          <div class="photo-slot">잔치 사진</div>
+        </div>
+      </section>
+
+      <section class="band message-band" id="messages">
+        <div class="section-inner message-layout">
+          <div>
+            <p class="section-kicker">With Love</p>
+            <h2>할머니께 마음 전하기</h2>
+            <p>
+              가족들이 남긴 짧은 축하 인사는 이 브라우저에 저장됩니다. 실제
+              공개용으로 쓸 때는 문구를 모아 사진과 함께 넣어도 좋아요.
+            </p>
+          </div>
+          <form class="message-form" id="messageForm">
+            <label>
+              이름
+              <input id="nameInput" type="text" placeholder="예: 손자 민준" />
+            </label>
+            <label>
+              축하 메시지
+              <textarea
+                id="messageInput"
+                rows="4"
+                placeholder="할머니, 팔순을 진심으로 축하드려요."
+              ></textarea>
+            </label>
+            <button class="button primary" type="submit">남기기</button>
+          </form>
+        </div>
+        <div class="section-inner">
+          <div class="message-list" id="messageList" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>사랑하는 가족들이 함께 준비한 팔순 생신 홈페이지</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
