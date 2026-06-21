@@ -3,232 +3,120 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>우리 가족 일정판</title>
+    <title>송순희 여사의 가족</title>
     <meta
       name="description"
-      content="가족 일정을 공지하고, 중요한 일정의 사진과 메모를 함께 남기는 가족 홈페이지입니다."
+      content="송순희 여사의 가족을 환영하고, 팔순잔치와 결혼식 같은 가족 축하 사진을 모아보는 가족 앨범 홈페이지입니다."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="site-header" aria-label="가족 일정 홈페이지">
-      <a class="brand" href="#top">우리 가족 일정판</a>
-      <nav aria-label="주요 메뉴">
-        <a href="#calendar">구글 캘린더</a>
-        <a href="#important">중요 일정</a>
-        <a href="#letters">편지함</a>
-      </nav>
-    </header>
-
     <main id="top">
-      <section class="hero" aria-label="가족 일정 공지">
+      <aside class="family-sidebar" aria-label="가족 카테고리">
+        <button class="family-tab active" type="button" data-family="all">
+          전체 가족
+        </button>
+        <button class="family-tab" type="button" data-family="song-soonhee">
+          송순희 여사
+        </button>
+        <button class="family-tab" type="button" data-family="jeon-aram">
+          전아람 가족
+        </button>
+        <button class="family-tab" type="button" data-family="jeon-gyeongae">
+          전경애 가족
+        </button>
+        <button class="family-tab" type="button" data-family="jeon-sinae">
+          전신애 가족
+        </button>
+      </aside>
+
+      <section class="hero" aria-label="송순희 여사의 가족 환영">
         <img
           class="hero-image"
-          src="assets/palsoon-hero.png"
-          alt="가족 행사를 떠올리게 하는 따뜻한 꽃 장식과 식탁"
+          id="heroImage"
+          src="./assets/palsoon-hero-small.jpg"
+          alt="가족 축하 자리를 떠올리게 하는 꽃 장식과 생신상"
         />
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <p class="eyebrow">Family Schedule Board</p>
-          <h1>가족의 중요한 날을 한곳에 모아요</h1>
+          <h1 id="heroTitle">송순희 여사의 가족 환영합니다</h1>
           <p class="hero-copy">
-            생신, 모임, 여행, 기념일을 공지하고 사진과 메모를 함께 남기는
-            가족 전용 일정 페이지입니다.
+            가족들의 소중한 시간들과 마음을 함께 모아두는 가족 홈페이지입니다.
           </p>
-          <div class="hero-actions" aria-label="빠른 이동">
-            <a class="button primary" href="#important">주요일정 보기</a>
-            <a class="button secondary" href="#addSchedule">일정 추가</a>
-          </div>
         </div>
       </section>
 
-      <section class="summary-band" aria-label="주요 일정 요약">
-        <div class="section-inner summary-grid">
-          <article>
-            <span class="summary-label">다가오는 중요 일정</span>
-            <strong id="nextEventTitle">팔순잔치</strong>
-            <p id="nextEventMeta">날짜와 장소를 확인해 주세요.</p>
-          </article>
-          <article>
-            <span class="summary-label">저장 방식</span>
-            <strong>이 브라우저에 저장</strong>
-            <p>일정, 사진, 메모, 편지는 현재 기기의 localStorage에 보관됩니다.</p>
-          </article>
-          <article>
-            <span class="summary-label">캘린더 연동</span>
-            <strong>Google Calendar</strong>
-            <p>공개 캘린더 ID와 API 키를 넣으면 주요일정을 불러올 수 있습니다.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-inner calendar-section" id="calendar">
+      <section class="section-inner album-section" id="album">
         <div class="section-heading">
-          <p class="section-kicker">Google Calendar</p>
-          <h2>가족 구글 캘린더 연동</h2>
+          <h2>가족 축하 앨범</h2>
           <p>
-            가족 캘린더를 공개 설정한 뒤 캘린더 ID를 넣으면 캘린더 화면을
-            바로 볼 수 있습니다. API 키까지 넣으면 아래 목록에도 일정을
-            가져옵니다.
+            전체 가족에서는 공감과 댓글이 많은 사진이 먼저 보입니다. 각 가족
+            앨범에서는 새로 올린 사진부터 편하게 볼 수 있습니다.
           </p>
         </div>
 
-        <div class="calendar-layout">
-          <form class="settings-panel" id="calendarSettings">
+        <div class="album-grid" id="albumGrid" aria-live="polite"></div>
+
+        <details class="add-panel album-add" id="addPhoto" open>
+          <summary>
+            <span>앨범 사진 추가</span>
+            <span class="plus-mark">+</span>
+          </summary>
+          <form class="album-form" id="albumForm">
             <label>
-              공개 캘린더 ID
-              <input
-                id="calendarIdInput"
-                type="text"
-                placeholder="예: familycalendar@gmail.com"
-              />
+              가족
+              <select id="photoFamily">
+                <option value="song-soonhee">송순희 여사</option>
+                <option value="jeon-aram">전아람 가족</option>
+                <option value="jeon-gyeongae">전경애 가족</option>
+                <option value="jeon-sinae">전신애 가족</option>
+              </select>
             </label>
             <label>
-              Google Calendar API 키
-              <input
-                id="apiKeyInput"
-                type="password"
-                placeholder="목록 불러오기에만 필요합니다"
-              />
+              제목
+              <input id="photoTitle" type="text" />
             </label>
-            <div class="button-row">
-              <button class="button primary" type="submit">연동 저장</button>
-              <button class="button ghost" type="button" id="clearCalendar">
-                초기화
-              </button>
-            </div>
-          </form>
-
-          <div class="calendar-card">
-            <iframe
-              id="calendarFrame"
-              title="가족 구글 캘린더"
-              src="about:blank"
-              loading="lazy"
-            ></iframe>
-            <p class="calendar-help" id="calendarHelp">
-              캘린더 ID를 입력하면 이 자리에 구글 캘린더가 표시됩니다.
-            </p>
-          </div>
-        </div>
-
-        <div class="section-heading compact">
-          <h3>구글 캘린더에서 불러온 주요일정</h3>
-        </div>
-        <div class="google-event-list" id="googleEventList" aria-live="polite"></div>
-      </section>
-
-      <section class="band important-band" id="important">
-        <div class="section-inner">
-          <div class="section-heading">
-            <p class="section-kicker">Important Days</p>
-            <h2>중요 일정</h2>
-            <p>
-              팔순잔치는 기본으로 등록되어 있습니다. 더하기로 일정을 추가하고
-              각 일정마다 사진과 메모를 채울 수 있습니다.
-            </p>
-          </div>
-
-          <details class="add-panel" id="addSchedule" open>
-            <summary>
-              <span>중요 일정 추가</span>
-              <span class="plus-mark">+</span>
-            </summary>
-            <form class="event-form" id="eventForm">
-              <label>
-                일정 이름
-                <input id="eventTitle" type="text" placeholder="예: 가족 여행" />
-              </label>
-              <label>
-                날짜
-                <input id="eventDate" type="date" />
-              </label>
-              <label>
-                시간
-                <input id="eventTime" type="time" />
-              </label>
-              <label>
-                장소
-                <input id="eventPlace" type="text" placeholder="예: 서울역" />
-              </label>
-              <label>
-                분류
-                <select id="eventCategory">
-                  <option value="palsoon">팔순잔치</option>
+            <label>
+              날짜
+              <input id="photoDate" type="date" />
+            </label>
+            <label>
+              분류
+              <span class="category-control">
+                <select id="photoCategory">
+                  <option value="palsoon">송순희 여사 팔순잔치</option>
+                  <option value="wedding">결혼식</option>
                   <option value="birthday">생신/기념일</option>
-                  <option value="meal">식사 모임</option>
-                  <option value="trip">여행</option>
                   <option value="family">가족 모임</option>
-                  <option value="custom">기타</option>
+                  <option value="trip">여행</option>
+                  <option value="other">기타</option>
                 </select>
-              </label>
-              <label class="wide">
-                메모
-                <textarea
-                  id="eventMemo"
-                  rows="3"
-                  placeholder="준비물, 회비, 연락할 사람 등을 적어 주세요."
-                ></textarea>
-              </label>
-              <button class="button primary wide" type="submit">일정 추가</button>
-            </form>
-          </details>
-
-          <div class="event-grid" id="eventGrid" aria-live="polite"></div>
-        </div>
-      </section>
-
-      <section class="section-inner recommendation-section">
-        <div class="section-heading">
-          <p class="section-kicker">Image Recommender</p>
-          <h2>주요일정 추천 이미지</h2>
-          <p>
-            선택한 일정 분류에 맞춰 어울리는 이미지 분위기를 추천합니다.
-            추천 카드를 누르면 현재 선택된 일정의 사진으로 채울 수 있습니다.
-          </p>
-        </div>
-        <div class="recommendation-grid" id="recommendationGrid"></div>
-      </section>
-
-      <section class="band letters-band" id="letters">
-        <div class="section-inner letter-layout">
-          <div>
-            <p class="section-kicker">Family Notes</p>
-            <h2>가족에게 편지와 메모 남기기</h2>
-            <p>
-              할머니께 드리는 축하뿐 아니라 부모님, 형제자매, 사촌에게 전할
-              공지와 마음도 남길 수 있습니다.
-            </p>
-          </div>
-          <form class="letter-form" id="letterForm">
-            <label>
-              받는 사람
-              <input id="letterTo" type="text" placeholder="예: 할머니, 가족 모두" />
+                <input
+                  id="customCategory"
+                  class="same-field-input"
+                  type="text"
+                  value="분류명을 직접 입력해 주세요."
+                  hidden
+                />
+              </span>
             </label>
             <label>
-              보낸 사람
-              <input id="letterFrom" type="text" placeholder="예: 손자 민준" />
+              사진
+              <input id="photoFile" class="file-input" type="file" accept="image/*" />
             </label>
-            <label>
-              편지 또는 메모
+            <label class="wide">
+              설명
               <textarea
-                id="letterBody"
-                rows="4"
-                placeholder="전하고 싶은 말을 적어 주세요."
+                id="photoMemo"
+                rows="3"
+                placeholder="사진에 담긴 사람, 장소, 기억하고 싶은 말을 적어 주세요."
               ></textarea>
             </label>
-            <button class="button primary" type="submit">남기기</button>
+            <button class="button primary wide" type="submit">앨범에 추가</button>
           </form>
-        </div>
-        <div class="section-inner">
-          <div class="letter-list" id="letterList" aria-live="polite"></div>
-        </div>
+        </details>
       </section>
     </main>
-
-    <footer>
-      <p>가족들이 함께 업데이트하는 우리 가족 일정 홈페이지</p>
-    </footer>
 
     <script src="script.js"></script>
   </body>
