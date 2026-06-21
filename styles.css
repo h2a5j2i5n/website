@@ -560,6 +560,14 @@ textarea {
   background: var(--surface-soft);
 }
 
+.upload-status {
+  min-height: 1.4em;
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
 .recommendation-grid {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }

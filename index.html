@@ -109,6 +109,7 @@
                 accept="image/*,.heic,.heif"
               />
             </label>
+            <p class="upload-status wide" id="uploadStatus" aria-live="polite"></p>
             <label class="wide">
               설명
               <textarea
@@ -117,7 +118,9 @@
                 placeholder="사진에 담긴 사람, 장소, 기억하고 싶은 말을 적어 주세요."
               ></textarea>
             </label>
-            <button class="button primary wide" type="submit">앨범에 추가</button>
+            <button class="button primary wide" id="albumSubmitButton" type="submit">
+              앨범에 추가
+            </button>
           </form>
         </details>
       </section>
