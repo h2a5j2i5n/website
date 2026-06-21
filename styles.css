@@ -430,6 +430,15 @@ h3 {
   cursor: not-allowed;
 }
 
+.action-button.danger {
+  color: #b42335;
+}
+
+.action-button.danger:hover {
+  border-color: #b42335;
+  color: #b42335;
+}
+
 .comment-area {
   padding: 0 18px 18px;
 }
